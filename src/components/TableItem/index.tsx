@@ -18,7 +18,7 @@ export const TableItem = ({item}: Props) => {
       </TColumn>
       <TColumn>{item.title}</TColumn>
       <TColumn>
-        <Value color={categories[item.category].expense ? '#FF0000' : 'rgb(70, 160, 0)'}>
+        <Value color={categories[item.category].expense ? '#E84A5F' : '#048600'}>
           $ {item.value}
         </Value>
       </TColumn>

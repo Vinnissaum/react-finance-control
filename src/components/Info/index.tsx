@@ -1,39 +1,49 @@
 import { Container, Month, MonthTitle, Resume } from "./styles";
 import { CaretCircleLeft, CaretCircleRight } from "phosphor-react";
 import { formatCurrentMonth } from "../../utils/dateFilter";
+import { ResumeInfo } from "../ResumeInfo";
 
 interface Props {
   currentDate: string;
+  onMonthChange: (newMonth: string) => void;
+  income: number;
+  expense: number;
 }
 
-export const Info = ({currentDate}: Props) => {
+export const Info = ({currentDate, onMonthChange, income, expense}: Props) => {
+  const date = new Date(currentDate);
+  
   const handlePrevMonth = () => {
-
+    date.setMonth(date.getMonth() - 1)
+    onMonthChange(`${date.getFullYear()}-${date.getMonth() + 1}`);
   }
 
   const handleNextMonth = () => {
-    
+    date.setMonth(date.getMonth() + 1);
+    onMonthChange(`${date.getFullYear()}-${date.getMonth() + 1}`);
   }
 
   return (
     <Container>
       <Month>
         <CaretCircleLeft 
-        size={32} 
-        cursor='pointer'
-        onClick={handlePrevMonth}
+          size={32} 
+          cursor='pointer'
+          onClick={handlePrevMonth}
         />
         <MonthTitle>
-          {formatCurrentMonth(currentDate)}
+          {formatCurrentMonth(date)}
         </MonthTitle>
         <CaretCircleRight 
-        size={32} 
-        cursor='pointer'
-        onClick={handleNextMonth}
+          size={32} 
+          cursor='pointer'
+          onClick={handleNextMonth}
         />
       </Month>
       <Resume>
-
+        <ResumeInfo title='Incomes' value={income}/>
+        <ResumeInfo title='Expenses'value={expense}/>
+        <ResumeInfo title='Balance' value={income - expense}/>
       </Resume>
     </Container>
   );

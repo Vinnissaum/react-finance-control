@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div``;
 
 export const Header = styled.div`
-  background-color: #b3cde0;
+  background-color: #2A363B;
   height: 15rem;
   text-align: center;
 `;
@@ -12,7 +12,7 @@ export const HeaderText = styled.h1`
   font-size: 3rem;
   margin: 0;
   padding: 0;
-  color: 	#03396c;
+  color: 	#FECEA8;
   padding-top: 3rem;
 `;
 

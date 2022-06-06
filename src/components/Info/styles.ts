@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   background-color: #FFFFFF;
-  box-shadow: 0 0 0.5rem #BBB;
+  box-shadow: 0 0 0.5rem #AAA;
   border-radius: 0.5rem;
   padding: 2rem;
   margin-top: -5rem;
@@ -23,5 +23,6 @@ export const MonthTitle = styled.div`
 `;
 
 export const Resume = styled.div`
+  display: flex;
   flex: 2;  
 `;
