@@ -5,6 +5,7 @@ import { CategoryType } from './types/Category';
 import { items } from './data/items';
 import { ItemType } from './types/Item';  
 import { filterListByMonth, getCurrentMonth } from './utils/dateFilter';
+import { TableArea } from './components/tableArea';
 
 function App() {
   const [list, setList] = useState(items);
@@ -23,7 +24,7 @@ function App() {
         </HeaderText>
       </Header>
       <Body>
-
+        <TableArea list={filteredList}/>
       </Body>
     </Container>
   );
