@@ -12,7 +12,8 @@ export const Title = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-export const Value = styled.div`
+export const Value = styled.div<{color?: string}>`
+font-weight: 500;
   text-align: center;
-  color: #000;
+  color: ${props => props.color ?? '#000'};
 `;

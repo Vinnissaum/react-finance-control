@@ -43,7 +43,10 @@ export const Info = ({currentDate, onMonthChange, income, expense}: Props) => {
       <Resume>
         <ResumeInfo title='Incomes' value={income}/>
         <ResumeInfo title='Expenses'value={expense}/>
-        <ResumeInfo title='Balance' value={income - expense}/>
+        <ResumeInfo 
+          color={(income - expense) < 0 ? '#E84A5F' : '#048600'}
+          title='Balance' 
+          value={income - expense}/>
       </Resume>
     </Container>
   );
