@@ -26,3 +26,9 @@ export const formatDate = (date: Date): string => {
   
   return `${day < 10 ? '0'+day : day}/${month < 10 ? '0'+month : month}/${year}`;
 }
+
+export const formatCurrentMonth = (currentDate: string): string => {
+  const date = new Date(currentDate);
+
+  return `${date.toLocaleString('en-US', {month: 'long'})} ${date.getFullYear()}`;
+}

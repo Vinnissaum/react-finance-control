@@ -4,7 +4,8 @@ export const Table = styled.table`
   width: 100%;
   background-color: #FFFFFF;
   padding: 2rem;
-  box-shadow: 0 0 0.5rem #CCCC;
+  box-shadow: 0 0 0.5rem #BBB;
+  border-radius: 0.5rem;
   margin-top: 2rem;
 `;
 

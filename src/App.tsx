@@ -6,6 +6,7 @@ import { items } from './data/items';
 import { ItemType } from './types/Item';  
 import { filterListByMonth, getCurrentMonth } from './utils/dateFilter';
 import { TableArea } from './components/tableArea';
+import { Info } from './components/Info';
 
 function App() {
   const [list, setList] = useState(items);
@@ -24,6 +25,7 @@ function App() {
         </HeaderText>
       </Header>
       <Body>
+        <Info currentDate={currentMonth}/>
         <TableArea list={filteredList}/>
       </Body>
     </Container>

@@ -1,6 +1,6 @@
 import { ItemType } from '../../types/Item';
 import { formatDate } from '../../utils/dateFilter';
-import { TRow, TColumn, Category } from './styles';
+import { TRow, TColumn, Category, Value } from './styles';
 import { categories } from '../../data/categories';
 
 interface Props {
@@ -17,7 +17,11 @@ export const TableItem = ({item}: Props) => {
         </Category>
       </TColumn>
       <TColumn>{item.title}</TColumn>
-      <TColumn>R$ {item.value}</TColumn>
+      <TColumn>
+        <Value color={categories[item.category].expense ? '#FF0000' : 'rgb(70, 160, 0)'}>
+          $ {item.value}
+        </Value>
+      </TColumn>
     </TRow>
   );
 }
