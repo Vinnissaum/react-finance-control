@@ -1,6 +1,17 @@
+import { Container, Header, HeaderText, Body } from './App.styles';
+
 function App() {
   return(
-    null
+    <Container>
+      <Header>
+        <HeaderText>
+          Finance control system
+        </HeaderText>
+      </Header>
+      <Body>
+
+      </Body>
+    </Container>
   );
 }
 
