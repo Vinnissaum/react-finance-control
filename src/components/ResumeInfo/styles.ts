@@ -13,7 +13,7 @@ export const Title = styled.div`
 `;
 
 export const Value = styled.div<{color?: string}>`
-font-weight: 500;
+  font-weight: 500;
   text-align: center;
   color: ${props => props.color ?? '#000'};
 `;
