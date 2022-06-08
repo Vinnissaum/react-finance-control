@@ -1,5 +1,6 @@
 import { Plus } from 'phosphor-react';
 import { useState } from 'react';
+import { categories } from '../../data/categories';
 import { ItemType } from '../../types/Item';
 import { Container, DateInput, CategorySelector, TitleInput, ValueInput } from './styles';
 
@@ -12,6 +13,8 @@ export const AddInfo = ({ onAddNewItem }: Props) => {
   const [newCategory, setNewCategory] = useState('');
   const [newTitle, setNewTitle] = useState('');
   const [newValue, setNewValue] = useState('');
+
+  let categoryKeys: string[] = Object.keys(categories);
 
   const handleAddNewItemEvent = () => {
     if (newDate !== '' && 
@@ -26,6 +29,7 @@ export const AddInfo = ({ onAddNewItem }: Props) => {
         value: parseFloat(newValue),
       }
       onAddNewItem(newItem);
+      setNewDate('');
       setNewCategory('');
       setNewTitle('');
       setNewValue('');
@@ -41,7 +45,7 @@ export const AddInfo = ({ onAddNewItem }: Props) => {
         <label>Date</label>
         <input 
           type="date" 
-          id="date"
+          value={newDate}
           onChange={e => setNewDate(e.target.value)} 
         />
       </DateInput>
@@ -49,9 +53,9 @@ export const AddInfo = ({ onAddNewItem }: Props) => {
         <label>Category</label>
         <select value={newCategory} onChange={e => setNewCategory(e.target.value)}>
           <option value="" data-default disabled selected></option>
-          <option value="food">Feeding</option>
-          <option value="rent">Rent</option>
-          <option value="salary">Salary</option>
+          {categoryKeys.map((key, index) => (
+            <option key={index} value={key}>{categories[key].title}</option>
+          ))}
         </select>
       </CategorySelector>
       <TitleInput>
