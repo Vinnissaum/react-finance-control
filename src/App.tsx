@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Container, Header, HeaderText, Body } from './App.styles';
 import { categories } from './data/categories';
-import { CategoryType } from './types/Category';
 import { items } from './data/items';
 import { ItemType } from './types/Item';  
 import { filterListByMonth, getCurrentMonth } from './utils/dateFilter';
 import { TableArea } from './components/tableArea';
 import { Info } from './components/Info';
 import { AddInfo } from './components/AddInfo';
+import { Coins } from 'phosphor-react';
 
 function App() {
   const [list, setList] = useState(items);
@@ -53,6 +53,7 @@ function App() {
       <Header>
         <HeaderText>
           Finance control system
+          <Coins size={32} />
         </HeaderText>
       </Header>
       <Body>

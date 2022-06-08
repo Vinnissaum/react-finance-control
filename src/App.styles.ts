@@ -9,6 +9,10 @@ export const Header = styled.div`
 `;
 
 export const HeaderText = styled.h1`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
   font-size: 3rem;
   margin: 0;
   padding: 0;
