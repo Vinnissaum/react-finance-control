@@ -8,16 +8,31 @@ interface Props {
 }
 
 export const AddInfo = ({ onAddNewItem }: Props) => {
-  const [addNewItem, setAddNewItem] = useState<ItemType>();
+  const [newDate, setNewDate] = useState('');
+  const [newCategory, setNewCategory] = useState('');
+  const [newTitle, setNewTitle] = useState('');
+  const [newValue, setNewValue] = useState('');
 
   const handleAddNewItemEvent = () => {
-    let newItem: ItemType = {
-      date: new Date(2022, 3, 23),
-      category: 'food',
-      title: 'test',
-      value: 250.2
+    if (newDate !== '' && 
+    newCategory !== '' && 
+    newTitle !== '' && 
+    newValue !== '') {
+      const date = new Date(newDate);
+      let newItem: ItemType = {
+        date,
+        category: newCategory,
+        title: newTitle,
+        value: parseFloat(newValue),
+      }
+      onAddNewItem(newItem);
+      setNewCategory('');
+      setNewTitle('');
+      setNewValue('');
+
+    } else {
+      alert('Please complete all required fields!');
     }
-    onAddNewItem(newItem);
   }
   
   return (
@@ -26,25 +41,33 @@ export const AddInfo = ({ onAddNewItem }: Props) => {
         <label>Date</label>
         <input 
           type="date" 
-          id="date" 
+          id="date"
+          onChange={e => setNewDate(e.target.value)} 
         />
       </DateInput>
       <CategorySelector>
         <label>Category</label>
-        <select name="" id=""></select>
+        <select value={newCategory} onChange={e => setNewCategory(e.target.value)}>
+          <option value="" data-default disabled selected></option>
+          <option value="food">Feeding</option>
+          <option value="rent">Rent</option>
+          <option value="salary">Salary</option>
+        </select>
       </CategorySelector>
       <TitleInput>
         <label>Title</label>
         <input 
           type="text"
-
+          value={newTitle}
+          onChange={e => setNewTitle(e.target.value)}
         />
       </TitleInput>
       <ValueInput>
         <label>Value</label>
         <input 
           type="text"
-
+          value={newValue}
+          onChange={e => setNewValue(e.target.value)}
         />
       </ValueInput>
 
@@ -52,7 +75,7 @@ export const AddInfo = ({ onAddNewItem }: Props) => {
         onClick={handleAddNewItemEvent}
       >
         <Plus 
-          size={20}
+          size={14}
           weight={'bold'}
         />
         Add

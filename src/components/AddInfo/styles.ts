@@ -17,14 +17,13 @@ export const Container = styled.div`
     justify-content: center;
     gap: 0.4rem;
     align-self: flex-end;
-    width: 100%;
     border: 0;
     background-color: #2A363B;
     color: #FFFFFF;
     font-weight: bold;
     border-radius: 0.7rem;
-    font-size: 1.7rem;
-    padding: 1rem;
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
 
     :hover{
